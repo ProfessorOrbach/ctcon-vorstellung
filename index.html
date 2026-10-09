@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>CTcon Unternehmenspräsentation</title>
+<meta name="description" content="Vorstellung von CTcon: Geschäftsfelder, Personen, Zahlen und KI-Themen.">
+<style>
+:root{
+  --magenta:#e2007a; --berry:#860351; --deep:#51002e; --grey:#757575; --ink:#212529; --paper:#fff; --soft:#faf3f7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth}
+body{font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5;overflow-x:hidden}
+section{min-height:100vh;min-height:100svh;scroll-snap-align:start;position:relative;padding:min(9vh,80px) max(20px,6vw);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.dark{background:linear-gradient(135deg,var(--deep),var(--berry) 60%,#b0036b);color:#fff}
+.dark::before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 20% 30%,rgba(226,0,122,.35),transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,255,255,.12),transparent 35%);animation:drift 18s ease-in-out infinite alternate;pointer-events:none}
+@keyframes drift{to{transform:translate(6%,-4%) rotate(6deg) scale(1.1)}}
+.wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;width:100%}
+h1{font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.05;font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:700;letter-spacing:-.01em;margin-bottom:.4em}
+h2 em,h1 em{font-style:normal;color:var(--magenta)}
+.dark h2 em,.dark h1 em{color:#ff8cc8}
+.kicker{text-transform:uppercase;letter-spacing:.18em;font-size:.8rem;font-weight:700;color:var(--magenta);margin-bottom:.8rem}
+.dark .kicker{color:#ffb3dc}
+.lead{font-size:clamp(1.05rem,2vw,1.35rem);max-width:760px;color:inherit;opacity:.9}
+/* hero */
+#hero{padding:0;color:#fff;background:#111}
+#hero .bg{position:absolute;inset:0;background:url(keyvisual.jpg) center/cover;animation:kb 24s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.14) translate(-2%,1.5%)}}
+#hero .shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(81,0,46,.92) 0%,rgba(134,3,81,.72) 42%,rgba(134,3,81,0) 78%)}
+#hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;mix-blend-mode:screen}
+#hero .wrap{padding:0 max(20px,6vw)}
+#hero .logo{width:min(220px,48vw);margin-bottom:2.5rem}
+#hero p{margin-top:1.4rem;font-size:clamp(1.05rem,2vw,1.4rem);max-width:560px}
+.badge{display:inline-flex;gap:.6rem;align-items:center;margin-top:2rem;padding:.6rem 1.1rem;border:1px solid rgba(255,255,255,.45);border-radius:99px;backdrop-filter:blur(6px);background:rgba(255,255,255,.1);font-size:.95rem}
+.badge b{color:#ffb3dc}
+.scroll{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85;animation:bob 1.8s infinite}
+@keyframes bob{50%{transform:translate(-50%,8px)}}
+/* cards */
+.grid{display:grid;gap:18px;margin-top:2rem}
+.g4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:#fff;border-radius:18px;padding:26px;box-shadow:0 10px 30px rgba(81,0,46,.1);border-top:5px solid var(--magenta);transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-8px) rotate(-.4deg);box-shadow:0 22px 40px rgba(134,3,81,.25)}
+.card .ico{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--magenta),var(--berry));display:grid;place-items:center;font-size:1.6rem;margin-bottom:14px;animation:pulse 3.5s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(226,0,122,.12)}}
+.card h3{font-size:1.25rem;color:var(--berry);margin-bottom:8px}
+.card ul{list-style:none;font-size:.95rem;color:#444}
+.card li{padding:4px 0 4px 18px;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:.8em;width:8px;height:8px;border-radius:50%;background:var(--magenta)}
+.soft{background:var(--soft)}
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:2rem}
+.fact{padding:22px;border-radius:18px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25)}
+.fact .n{font-size:clamp(2.4rem,5vw,3.6rem);font-weight:700;line-height:1}
+.fact .l{margin-top:.5rem;font-size:.95rem;opacity:.9}
+.note{font-size:.85rem;opacity:.85;margin-top:1.4rem;max-width:820px;border-left:3px solid #ff8cc8;padding-left:12px}
+/* people */
+.person{display:flex;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:16px;box-shadow:0 6px 20px rgba(81,0,46,.09);transition:transform .3s}
+.person:hover{transform:scale(1.03)}
+.av{flex:none;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;background:linear-gradient(135deg,var(--magenta),var(--berry))}
+.person b{display:block}.person span{font-size:.88rem;color:var(--grey)}
+.sub{margin:2rem 0 .2rem;font-weight:700;color:var(--berry);font-size:1.1rem}
+/* ki */
+.ki{position:relative;background:#fff;border-radius:18px;padding:24px 24px 24px 80px;box-shadow:0 10px 30px rgba(0,0,0,.15);color:var(--ink);transition:transform .3s}
+.ki:hover{transform:translateX(8px)}
+.ki .no{position:absolute;left:20px;top:18px;font-size:2.4rem;font-weight:700;color:var(--magenta);opacity:.9}
+.ki h3{color:var(--berry);margin-bottom:6px}
+.ki p{font-size:.95rem;color:#444}
+.tag{display:inline-block;margin-top:8px;font-size:.75rem;padding:2px 10px;border-radius:99px;background:#fde3f1;color:var(--berry)}
+/* clients marquee */
+.marq{overflow:hidden;margin-top:2rem;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.track{display:flex;gap:14px;width:max-content;animation:scroll 60s linear infinite}
+.track span{padding:10px 22px;border-radius:99px;background:#fff;border:1px solid #eacbdc;color:var(--berry);font-weight:500;white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.band{margin-top:2rem;border-radius:22px;overflow:hidden;position:relative;height:clamp(160px,28vw,300px);background:url(keyvisual.jpg) center 35%/cover fixed}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(134,3,81,.75),transparent)}
+.band p{position:absolute;z-index:2;left:28px;bottom:24px;color:#fff;font-size:clamp(1.2rem,3vw,2rem);font-weight:700;max-width:70%}
+/* nav */
+nav{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:10px}
+nav a{width:11px;height:11px;border-radius:50%;background:rgba(117,117,117,.5);border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15);transition:.3s}
+nav a.on{background:var(--magenta);transform:scale(1.5)}
+.bar{position:fixed;top:0;left:0;height:4px;background:var(--magenta);z-index:60;width:0}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+footer-note{display:block}
+.src{font-size:.8rem;opacity:.75;margin-top:2rem}
+.src a{color:inherit}
+@media(max-width:700px){nav{display:none}.ki{padding:70px 20px 20px}.ki .no{top:14px}.band p{max-width:90%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<nav id="nav"></nav>
+
+<section id="hero">
+  <div class="bg"></div><div class="shade"></div><canvas id="flow"></canvas>
+  <div class="wrap">
+    <img class="logo" src="logo-white.svg" alt="CTcon">
+    <h1>Unternehmens&shy;steuerung <em style="color:#ffb3dc">neu gedacht.</em></h1>
+    <p>CTcon verbindet Managementberatung mit Management-Training – seit 1992, für DAX&nbsp;40, EURO&nbsp;STOXX&nbsp;50 und den Mittelstand.</p>
+    <div class="badge">🏆 <span><b>Bester Unternehmensberater 2026</b> · brand eins &amp; Statista · 10 Kategorien</span></div>
+  </div>
+  <div class="scroll">scrollen ↓</div>
+</section>
+
+<section id="ueber" class="soft">
+  <div class="wrap">
+    <div class="kicker rv">Das Unternehmen</div>
+    <h2 class="rv">Beratung <em>und</em> Training aus einer Hand</h2>
+    <p class="lead rv">CTcon wurde 1992 als Spin-off der WHU – Otto Beisheim School of Management gegründet. Das Team analysiert, konzipiert, setzt um und verankert Veränderung – mit Fokus auf Controlling, Finance und Steuerung. Fester Bestandteil: ein wissenschaftlicher Beirat und enge Verbindungen zur WHU (CCM, IMC), zum ICV und zur IGC.</p>
+    <div class="grid g4">
+      <div class="card rv"><div class="ico">🎓</div><h3>1992</h3><p>Gründung als WHU-Spin-off in Vallendar</p></div>
+      <div class="card rv"><div class="ico">📍</div><h3>4 Standorte</h3><p>Düsseldorf · Bonn · Frankfurt · München</p></div>
+      <div class="card rv"><div class="ico">🏢</div><h3>Klienten</h3><p>CEOs &amp; CFOs von DAX&nbsp;40, EURO&nbsp;STOXX&nbsp;50 und Mittelstand</p></div>
+      <div class="card rv"><div class="ico">🎙️</div><h3>Podcast &amp; Netzwerk</h3><p>„Zielführung starten“ und regelmäßiger Klientenaustausch</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="felder" class="soft" style="background:#fff">
+  <div class="wrap">
+    <div class="kicker rv">Geschäftsfelder</div>
+    <h2 class="rv">Vier Felder, <em>ein Steuerungsrahmen</em></h2>
+    <div class="grid g4">
+      <div class="card rv"><div class="ico">🧭</div><h3>Strategie &amp; Transformation</h3><ul><li>Strategie &amp; Geschäftsmodell</li><li>Steuerung &amp; Operating Model</li><li>Digitale Transformation</li><li>Restrukturierung</li></ul></div>
+      <div class="card rv"><div class="ico">📈</div><h3>Performance Management</h3><ul><li>Planung &amp; Predictive Forecasting</li><li>Reporting &amp; Performance Review</li><li>Finance Excellence</li><li>Nachhaltigkeitssteuerung (CSRD/ESG)</li></ul></div>
+      <div class="card rv"><div class="ico">🧠</div><h3>Data &amp; Analytics</h3><ul><li>Data Strategy &amp; Governance</li><li>Datengetriebene Steuerung</li><li>Advanced Analytics &amp; AI</li><li>Blueprint ERP &amp; SAP S/4</li></ul></div>
+      <div class="card rv"><div class="ico">🤝</div><h3>Change &amp; Training</h3><ul><li>Human Capital &amp; Change</li><li>Leadership Development</li><li>Blended Learning Journeys</li><li>CxO Community &amp; Academies</li></ul></div>
+    </div>
+    <div class="band rv"><p>Von der Analyse bis zur Verankerung – Veränderung, die bleibt.</p></div>
+  </div>
+</section>
+
+<section id="zahlen" class="dark">
+  <div class="wrap">
+    <div class="kicker rv">Zahlen &amp; Fakten</div>
+    <h2 class="rv">Umsatz und <em>Größe</em></h2>
+    <p class="lead rv">CTcon veröffentlicht weder Umsatz noch Mitarbeiterzahl auf der eigenen Website. Die folgenden Werte stammen aus externen Datenbanken und sind <b>Schätzungen</b>.</p>
+    <div class="facts">
+      <div class="fact rv"><div class="n">≈ $<span data-count="25.8" data-dec="1">0</span> Mio.</div><div class="l">geschätzter Jahresumsatz (ZoomInfo, nicht durch Jahresabschluss belegt)</div></div>
+      <div class="fact rv"><div class="n">51–200</div><div class="l">Mitarbeitende laut ZoomInfo (A-Leads nennt ca. 60)</div></div>
+      <div class="fact rv"><div class="n"><span data-count="8">0</span> Jahre</div><div class="l">in Folge „Bester Unternehmensberater“ (laut ctcon.de)</div></div>
+      <div class="fact rv"><div class="n"><span data-count="34">0</span>+</div><div class="l">Referenzlogos auf der Website, u. a. Audi, Bayer, DHL, E.ON, RWE</div></div>
+    </div>
+    <p class="note rv">Verlässliche Zahlen liefern nur der Jahresabschluss im Bundesanzeiger bzw. das Handelsregister. Vor einer offiziellen Verwendung bitte dort prüfen.</p>
+  </div>
+</section>
+
+<section id="personen" class="soft">
+  <div class="wrap">
+    <div class="kicker rv">Handelnde Personen</div>
+    <h2 class="rv">Partner &amp; <em>wissenschaftlicher Beirat</em></h2>
+    <p class="lead rv">Die Website nennt keine namentliche Geschäftsführung, sondern ein Partnerteam.</p>
+    <div class="sub rv">Partner</div>
+    <div class="grid g3" id="partners"></div>
+    <div class="sub rv">Wissenschaftlicher Beirat (WHU)</div>
+    <div class="grid g3" id="beirat"></div>
+    <div class="sub rv">Weitere genannte Personen</div>
+    <div class="grid g3" id="weitere"></div>
+  </div>
+</section>
+
+<section id="kunden" style="background:#fff">
+  <div class="wrap">
+    <div class="kicker rv">Referenzen</div>
+    <h2 class="rv">Wem CTcon <em>vertraut wird</em></h2>
+  </div>
+  <div class="marq"><div class="track" id="track"></div></div>
+  <div class="marq" style="margin-top:14px"><div class="track" id="track2" style="animation-direction:reverse;animation-duration:75s"></div></div>
+</section>
+
+<section id="ki" class="dark">
+  <div class="wrap">
+    <div class="kicker rv">KI-Vortrag</div>
+    <h2 class="rv">Diese Felder sind für <em>Mitarbeitende von CTcon</em> besonders spannend</h2>
+    <p class="lead rv">CTcon berät zu Steuerung, Finance und Daten – genau dort verändert KI gerade die Arbeit. Vorschläge für Themenblöcke:</p>
+    <div class="grid g3">
+      <div class="ki rv"><div class="no">01</div><h3>KI-gestütztes Forecasting</h3><p>Predictive Forecasting, Szenarien und „Forecast 2030+“: Wo schlägt ein Modell das klassische Planen?</p><span class="tag">Performance Management</span></div>
+      <div class="ki rv"><div class="no">02</div><h3>Marktsignale → Steuerungsimpulse</h3><p>Externe Daten, News und Wettbewerbssignale automatisch in wirksame Steuerung übersetzen.</p><span class="tag">Whitepaper-Thema</span></div>
+      <div class="ki rv"><div class="no">03</div><h3>Agentische KI &amp; Entscheidungen</h3><p>Wie verändern KI-Agenten Entscheidungsprozesse im CFO-Bereich – und wer trägt Verantwortung?</p><span class="tag">Podcast Folge 40</span></div>
+      <div class="ki rv"><div class="no">04</div><h3>Generative KI für Unternehmenswissen</h3><p>Verteiltes Wissen in Berichten, Verträgen und Projekten nutzbar machen – RAG, Copilots, Grenzen.</p><span class="tag">Data &amp; Analytics</span></div>
+      <div class="ki rv"><div class="no">05</div><h3>Daten-Governance als KI-Fundament</h3><p>Single Source of Truth, Datenqualität und -kultur: Ohne Daten keine brauchbare KI.</p><span class="tag">Data Strategy</span></div>
+      <div class="ki rv"><div class="no">06</div><h3>KI &amp; SAP S/4HANA</h3><p>ERP-Transformation mit KI-Funktionen: Chancen für Reporting, Abschluss und Planung.</p><span class="tag">Podcast Folge 45</span></div>
+      <div class="ki rv"><div class="no">07</div><h3>Finance Automation &amp; Working Capital</h3><p>Prozessautomatisierung, Liquiditätssteuerung und Shared Services mit KI – inkl. Versicherungsbranche.</p><span class="tag">Finance Excellence</span></div>
+      <div class="ki rv"><div class="no">08</div><h3>KI im Beratungsalltag</h3><p>Recherche, Analyse, Folien, Angebote: Live-Demo, Prompt-Patterns und Qualitätssicherung.</p><span class="tag">Praxis-Workshop</span></div>
+      <div class="ki rv"><div class="no">09</div><h3>KI-Kompetenz &amp; Training</h3><p>Personalisierte Learning Journeys, KI-Coaches, EU AI Act und die Rolle des Menschen in der Führung.</p><span class="tag">Change &amp; Training</span></div>
+    </div>
+    <p class="src rv">Quellen: <a href="https://www.ctcon.de/" target="_blank" rel="noopener">ctcon.de</a>, <a href="https://www.ctcon.de/leistung" target="_blank" rel="noopener">Leistung</a>, <a href="https://www.ctcon.de/portrait" target="_blank" rel="noopener">Portrait</a>; Schätzwerte: ZoomInfo, A-Leads. Stand: Oktober 2026.</p>
+  </div>
+</section>
+
+<script>
+const P=[["Axel Neumann-Giesen","Partner · Bonn"],["Björn Radtke","Partner · Düsseldorf"],["Dr. Christian Bungenstock","Partner · Düsseldorf"],["Gunnar Elbers","Partner Human Capital & Change · Düsseldorf"],["Dr. Jörg Ehlken","Partner · Düsseldorf"],["Dr. Thomas Lührmann","Partner · Düsseldorf"],["Dr. Helmut Kolmerer","Partner Insurance · München"],["Sjard Hammer","Partner · München"]];
+const B=[["Prof. Dr. Utz Schäffer","WHU"],["Prof. em. Dr. Dr. h.c. Jürgen Weber","WHU"]];
+const W=[["Lovely Höger","Ansprechpartnerin"],["Julia Younes","Recruiting & Employer Branding"],["Andreas Rauh","CTcon"],["Anette Link","Beraterin"],["Sabina Friederichs","Beraterin"]];
+const ini=n=>n.replace(/(Prof\.|Dr\.|em\.|h\.c\.)/g,"").trim().split(/\s+/).filter(Boolean).map((x,i,a)=>i==0||i==a.length-1?x[0]:"").join("");
+const fill=(id,a)=>document.getElementById(id).innerHTML=a.map(([n,r])=>`<div class="person rv"><div class="av">${ini(n)}</div><div><b>${n}</b><span>${r}</span></div></div>`).join("");
+fill("partners",P);fill("beirat",B);fill("weitere",W);
+const C="Altana,Audi,AXA,Bayer,B. Braun,Bechtle,Bundesagentur für Arbeit,Bundesverwaltungsamt,Covestro,Deutsche Bahn,DHL Group,EnBW,E.ON,Fraport,Fressnapf,GASAG,Gothaer,Hager Group,INNIO,KVB,LANXESS,Mondi,On,RWE,Talanx,Tengelmann,Thalia,Thyssenkrupp,TÜV Rheinland,Valora,Versicherungskammer,Vattenfall,Vonovia,WEPA,Württembergische,Zschimmer & Schwarz".split(",");
+const mk=a=>{const h=a.map(c=>`<span>${c}</span>`).join("");return h+h};
+document.getElementById("track").innerHTML=mk(C.slice(0,18));
+document.getElementById("track2").innerHTML=mk(C.slice(18));
+// reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");e.target.querySelectorAll("[data-count]").forEach(c=>{if(c.done)return;c.done=1;const t=+c.dataset.count,d=+c.dataset.dec||0,s=performance.now();(function f(n){const p=Math.min((n-s)/1400,1);c.textContent=(t*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(f)})(s)})}}),{threshold:.2});
+document.querySelectorAll(".rv").forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+"ms";io.observe(el)});
+// nav dots + progress
+const secs=[...document.querySelectorAll("section")],nav=document.getElementById("nav");
+nav.innerHTML=secs.map(s=>`<a href="#${s.id}" aria-label="${s.id}"></a>`).join("");
+const dots=[...nav.children];
+addEventListener("scroll",()=>{const h=document.documentElement;document.getElementById("bar").style.width=scrollY/(h.scrollHeight-innerHeight)*100+"%";let k=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.5)k=i});dots.forEach((d,i)=>d.classList.toggle("on",i==k))},{passive:true});
+addEventListener("keydown",e=>{const y=scrollY+innerHeight/2;let k=secs.findIndex((s,i)=>!secs[i+1]||secs[i+1].offsetTop>y);if(["ArrowRight","ArrowDown","PageDown"].includes(e.key)){e.preventDefault();secs[Math.min(k+1,secs.length-1)].scrollIntoView()}if(["ArrowLeft","ArrowUp","PageUp"].includes(e.key)){e.preventDefault();secs[Math.max(k-1,0)].scrollIntoView()}});
+// hero flowing light waves
+const cv=document.getElementById("flow"),cx=cv.getContext("2d");let W_,H_;
+function rs(){W_=cv.width=cv.offsetWidth;H_=cv.height=cv.offsetHeight}rs();addEventListener("resize",rs);
+const pts=Array.from({length:70},()=>({x:Math.random(),y:Math.random(),s:.0004+Math.random()*.001,r:1+Math.random()*2.5,p:Math.random()*6}));
+function draw(t){cx.clearRect(0,0,W_,H_);
+ for(let l=0;l<4;l++){cx.beginPath();for(let x=0;x<=W_;x+=8){const y=H_*(.62-.18*x/W_)+Math.sin(x/(130+l*30)+t/900+l)*(28+l*8)+Math.sin(x/60-t/600)*8;x?cx.lineTo(x,y):cx.moveTo(x,y)}cx.strokeStyle=`rgba(255,${120+l*30},${190+l*15},${.5-l*.1})`;cx.lineWidth=2.2-l*.3;cx.shadowColor="#e2007a";cx.shadowBlur=14;cx.stroke()}
+ pts.forEach(p=>{p.x=(p.x+p.s)%1;p.y+=Math.sin(t/1200+p.p)*.0008;cx.beginPath();cx.arc(p.x*W_,p.y*H_,p.r,0,7);cx.fillStyle="rgba(255,200,230,.75)";cx.shadowBlur=10;cx.fill()});
+ requestAnimationFrame(draw)}
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)requestAnimationFrame(draw);
+</script>
+</body>
+</html>
