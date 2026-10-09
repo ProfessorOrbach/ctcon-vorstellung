@@ -90,6 +90,15 @@ footer-note{display:block}
 .src a{color:inherit}
 @media(max-width:700px){nav{display:none}.ki{padding:70px 20px 20px}.ki .no{top:14px}.band p{max-width:90%}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+.pod{display:flex;gap:28px;align-items:center;flex-wrap:wrap;background:linear-gradient(135deg,var(--deep),var(--berry));color:#fff;border-radius:24px;padding:30px;margin-top:2rem;box-shadow:0 20px 50px rgba(81,0,46,.3)}
+.eq{display:flex;gap:5px;align-items:flex-end;height:90px;flex:none}
+.eq i{width:9px;height:12px;border-radius:5px;background:linear-gradient(#ffb3dc,var(--magenta));transition:height .3s}
+.pod.play .eq i{animation:eq 1s ease-in-out infinite alternate}
+.eq i:nth-child(2n){animation-delay:-.4s!important}.eq i:nth-child(3n){animation-delay:-.7s!important}.eq i:nth-child(5n){animation-delay:-.2s!important}
+@keyframes eq{from{height:12px}to{height:90px}}
+.pod .txt{flex:1;min-width:260px}.pod h3{font-size:1.4rem;margin-bottom:6px}.pod p{opacity:.9;margin-bottom:14px;font-size:.95rem}
+.pod audio{width:100%}
+@media(prefers-reduced-motion:reduce){.pod.play .eq i{height:50px}}
 </style>
 </head>
 <body>
@@ -183,6 +192,22 @@ footer-note{display:block}
   <div class="marq" style="margin-top:14px"><div class="track" id="track2" style="animation-direction:reverse;animation-duration:75s"></div></div>
 </section>
 
+<section id="podcast" class="soft">
+  <div class="wrap">
+    <div class="kicker rv">Zum Hören</div>
+    <h2 class="rv">Podcast: <em>Unternehmenssteuerung mit KI</em></h2>
+    <p class="lead rv">Die Einstimmung auf den KI-Vortrag – direkt hier abspielen, auch unterwegs auf dem Handy.</p>
+    <div class="pod rv" id="pod">
+      <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="txt">
+        <h3>Wie ctcon Unternehmenssteuerung mit KI neu erfindet</h3>
+        <p>Audio-Format · ca. 4 MB</p>
+        <audio controls preload="metadata" src="podcast.m4a"></audio>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="ki" class="dark">
   <div class="wrap">
     <div class="kicker rv">KI-Vortrag</div>
@@ -232,6 +257,8 @@ function draw(t){cx.clearRect(0,0,W_,H_);
  pts.forEach(p=>{p.x=(p.x+p.s)%1;p.y+=Math.sin(t/1200+p.p)*.0008;cx.beginPath();cx.arc(p.x*W_,p.y*H_,p.r,0,7);cx.fillStyle="rgba(255,200,230,.75)";cx.shadowBlur=10;cx.fill()});
  requestAnimationFrame(draw)}
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches)requestAnimationFrame(draw);
+const au=document.querySelector("#pod audio"),pd=document.getElementById("pod");
+au.addEventListener("play",()=>pd.classList.add("play"));["pause","ended"].forEach(e=>au.addEventListener(e,()=>pd.classList.remove("play")));
 </script>
 </body>
 </html>
